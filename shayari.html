@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shayari for You</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ffe0ec, #ffe4e1);
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hearts, .balloons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .heart, .balloon {
+      position: absolute;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.6;
+    }
+    .heart {
+      font-size: 2.5rem;
+    }
+    .balloon {
+      width: 30px;
+      height: 50px;
+      border-radius: 15px;
+      background: radial-gradient(circle, #f06, #f79);
+    }
+    .balloon1 { background: radial-gradient(circle, #ff6b6b, #ffb6b9); }
+    .balloon2 { background: radial-gradient(circle, #ffcc70, #fce38a); }
+    .balloon3 { background: radial-gradient(circle, #a29bfe, #dfe6e9); }
+    @keyframes float {
+      0% {transform: translateY(100vh) scale(0.5); opacity: 0.5;}
+      50% {opacity: 1;}
+      100% {transform: translateY(-10vh) scale(1.2); opacity: 0.5;}
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255,255,255,0.8);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #c2185b;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #444;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .next-btn {
+      padding: 1rem 2rem;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: #e0559b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="hearts">
+    <script>
+      const heartColors = ['#6a0dad', '#8b0000', '#dc143c', '#4b0082', '#9932cc', '#8a2be2', '#ff1493', '#e60073'];
+      for (let i = 0; i < 1000; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '❤';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.top = (Math.random() * 100 + 50) + '%';
+        heart.style.animationDelay = (Math.random() * 10) + 's';
+        heart.style.fontSize = (Math.random() * 1.5 + 2) + 'rem';
+        heart.style.opacity = Math.random() * 0.7 + 0.3;
+        heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        document.body.querySelector('.hearts').appendChild(heart);
+      }
+    </script>
+  </div>
+  <div class="balloons">
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.classList.add('balloon' + ((i % 3) + 1));
+        balloon.style.left = Math.random() * 100 + '%';
+        balloon.style.top = (Math.random() * 100 + 50) + '%';
+        balloon.style.animationDelay = (Math.random() * 10) + 's';
+        document.body.querySelector('.balloons').appendChild(balloon);
+      }
+    </script>
+  </div>
+
+  <div class="content">
+    <h1>मेरी मोहब्बत की गहराई...</h1>
+    <p>
+      तुमसे मिलकर जाना क्या होता है प्यार,<br />
+      तेरी हँसी में बसी है मेरी हर बहार।<br /><br />
+      तेरे साथ हर लम्हा लगे खास,<br />
+      जैसे फूलों पे बिखरा हो उजाला और सुवास।<br /><br />
+      मेरी दुनिया, मेरा सुकून हो तुम,<br />
+      तेरे बिना हर खुशी लगती है गुम।<br /><br />
+      चलो एक वादा करते हैं आज से,<br />
+      हर जनम में तेरा साथ न छोड़ें कभी भी राज़ से।
+    </p>
+    <button class="next-btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    function nextPage() {
+      window.location.href = "gallery.html";
+    }
+  </script>
+</body>
+</html>

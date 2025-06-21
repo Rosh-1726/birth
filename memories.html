@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memories</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: 5% auto;
+      background: rgba(255,255,255,0.9);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+    h2 {
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    .memory {
+      margin-bottom: 1.5rem;
+    }
+    .memory img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .caption {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #555;
+    }
+    .next-btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: #e0559b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .background-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      color: #a00044;
+      font-size: 0.8rem;
+      animation: float 12s infinite ease-in-out;
+      opacity: 0.5;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); }
+      100% { transform: translateY(-10vh) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="background-hearts" id="hearts"></div>
+
+  <div class="container">
+    <h2>Our Beautiful Memories</h2>
+    <div class="memory">
+      <img src="https://via.placeholder.com/500x300?text=Trip+to+Goa" alt="Trip to Goa">
+      <div class="caption">A magical escape to the beaches of Goa 🌴</div>
+    </div>
+    <div class="memory">
+      <img src="https://via.placeholder.com/500x300?text=First+Anniversary" alt="First Anniversary">
+      <div class="caption">Our first anniversary celebration, full of joy and laughter 🎉</div>
+    </div>
+    <div class="memory">
+      <img src="https://via.placeholder.com/500x300?text=Random+Cuddle+Moment" alt="Cuddle Moment">
+      <div class="caption">Just us, being goofy and in love 🤗</div>
+    </div>
+    <button class="next-btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    function nextPage() {
+      window.location.href = "shayari.html";
+    }
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 500; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = '❤';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.top = Math.random() * 100 + '%';
+      heart.style.animationDelay = Math.random() * 10 + 's';
+      heart.style.fontSize = (Math.random() * 0.4 + 0.4) + 'rem';
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

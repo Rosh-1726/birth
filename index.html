@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Love</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffd1dc, #ffe4e1);
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hearts, .balloons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .heart, .balloon {
+      position: absolute;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.6;
+    }
+    .heart {
+      color: #a00044;
+      font-size: 1rem;
+    }
+    .balloon {
+      width: 30px;
+      height: 50px;
+      border-radius: 15px;
+      background: radial-gradient(circle, #f06, #f79);
+    }
+    @keyframes float {
+      0% {transform: translateY(100vh) scale(0.5); opacity: 0.5;}
+      50% {opacity: 1;}
+      100% {transform: translateY(-10vh) scale(1.2); opacity: 0.5;}
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255,255,255,0.8);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d6336c;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+    .next-btn {
+      padding: 1rem 2rem;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: #e0559b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="hearts">
+    <!-- Generate 1000 floating small dark hearts -->
+    <script>
+      for (let i = 0; i < 1000; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '❤';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.top = (Math.random() * 100 + 50) + '%';
+        heart.style.animationDelay = (Math.random() * 10) + 's';
+        heart.style.fontSize = (Math.random() * 0.4 + 0.3) + 'rem';
+        heart.style.opacity = Math.random() * 0.7 + 0.3;
+        document.body.querySelector('.hearts').appendChild(heart);
+      }
+    </script>
+  </div>
+  <div class="balloons">
+    <!-- Generate floating balloons -->
+    <div class="balloon" style="left:20%; animation-delay:0s;"></div>
+    <div class="balloon" style="left:50%; animation-delay:2s;"></div>
+    <div class="balloon" style="left:80%; animation-delay:4s;"></div>
+  </div>
+
+  <div class="content">
+    <h1>To The Love of My Life 💖</h1>
+    <p>
+      You are my sunshine on the darkest days, the reason behind my smile, and the love I never knew I needed until I met you.<br><br>
+      Every moment with you is a memory I cherish. This journey is just a glimpse of the joy, love, and laughter you bring into my life. 💑
+    </p>
+    <button class="next-btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    function nextPage() {
+      window.location.href = "memories.html";
+    }
+  </script>
+</body>
+</html>
