@@ -142,28 +142,27 @@
   function nextPage() {
     window.location.href = "promises.html";
   }
+<video autoplay muted loop controls width="500">
+  <source src="vdo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video autoplay muted loop controls width="500">
+  <source src="vdo3.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video autoplay muted loop controls width="500">
+  <source src="vdo4.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video autoplay muted loop controls width="500">
+  <source src="hat.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
 
-
-  <video id="videoPlayer" width="720" height="405" controls autoplay></video>
 
   
-    const videoFiles = ["hat.mp4", "vdo.mp4", "vdo3.mp4", "vdo4.mp4"];
-    let current = 0;
-    const video = document.getElementById("videoPlayer");
-
-    video.src = videoFiles[current];
-
-    video.addEventListener("ended", () => {
-      current++;
-      if (current < videoFiles.length) {
-        video.src = videoFiles[current];
-        video.play();
-      }
-    });
-  
-
 </script>
 
   
