@@ -12,69 +12,84 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
       background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       position: relative;
+      overflow-y: auto;
     }
+
     .hearts, .balloons {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
       overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
+
     .heart, .balloon {
       position: absolute;
       animation: float 10s infinite ease-in-out;
       opacity: 0.6;
     }
+
     .heart {
       font-size: 1.8rem;
     }
+
     .balloon {
       width: 30px;
       height: 50px;
       border-radius: 15px;
     }
+
     .balloon1 { background: radial-gradient(circle, #ff6b6b, #ffb6b9); }
     .balloon2 { background: radial-gradient(circle, #ffcc70, #fce38a); }
     .balloon3 { background: radial-gradient(circle, #a29bfe, #dfe6e9); }
 
     @keyframes float {
-      0% {transform: translateY(100vh) scale(0.5); opacity: 0.5;}
-      50% {opacity: 1;}
-      100% {transform: translateY(-10vh) scale(1.2); opacity: 0.5;}
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0.5; }
     }
 
     .content {
       z-index: 1;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
       animation: fadeIn 2s ease-in-out;
       max-width: 800px;
+      width: 100%;
     }
+
     h1 {
       font-size: 2rem;
       color: #c2185b;
       margin-bottom: 1rem;
     }
+
     ul {
       list-style: none;
       padding: 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #444;
-      line-height: 2;
+      line-height: 1.8;
+      text-align: left;
     }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
     .next-btn {
       margin-top: 2rem;
       padding: 1rem 2rem;
@@ -86,12 +101,32 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     .next-btn:hover {
       background: #e0559b;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📱 Responsive Styles */
+    @media (max-width: 600px) {
+      .content {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      ul {
+        font-size: 1rem;
+      }
+      .next-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -99,6 +134,7 @@
 <audio autoplay loop>
   <source src="barish.mp3" type="audio/mpeg">
 </audio>
+
 <div class="hearts">
   <script>
     const heartColors = ['#6a0dad', '#8b0000', '#dc143c', '#4b0082', '#9932cc', '#8a2be2', '#ff1493', '#e60073'];
@@ -116,6 +152,7 @@
     }
   </script>
 </div>
+
 <div class="balloons">
   <script>
     for (let i = 0; i < 30; i++) {
@@ -129,27 +166,26 @@
     }
   </script>
 </div>
+
 <div class="content">
   <h1>Our Best Moments of the Year 💫</h1>
   <ul>
-    <ul>
-  <li>🌴 Nich kayam Bhandt Rahato, 😤🤯❤️</li>
-  <li>🎉 Pushpak tuch First time jeva bolla teva GF parynt gelach nahi Direct bayko... 😆😂🤣 bekkar hasayla yet te athvun 😝💕💞</li>
-  <li>🌄 Leena didi ch lagn 💍💐 ani Leena Ahire lach request avaj aiknya sathi 🙏📞😔</li>
-  <li>📞 Dhulyala first time call kela 🤳🏼 bekkar hasli hoti mi prachand 😆😂 shejarcha ek room rikama hota 🚪🛏️ ni tyachya shejari sakshi cha room direct door knock krun vicharychi yevdhi kabr hasteye 🤣🙈....me reason sangital mavshi cha porga hota 😳🙃</li>
-  <li>📸 Snap pasun zaleli survat 😅😬 khot bolayvr geli...Tanvi mdhe pdli bichari... 🫣😶‍🌫️</li>
-  <li>🐣 Pillya tuzya barobr cha pratek day itka bhari ahe 💕💫 aaj parynt cha it just became memorable forever 🌈🕊️📖</li>
-  <li>💋 ky tuz bghn 😍 ky tuze lips red red 😚 mazi cheery red red cheery 🍒🍓😳</li>
-  <li>📝 Pillya he sagal type krteye pn rdu yetay 😭💌 shappat 💔 divas ka yevdhe fast fast jatay 🕰️😢 khupch fast jatay na 🫠💫</li>
-  <li>💖 Pillya nahi mahit pudhe ky honar ahe 🙏✨ pn mazi first ani last choice tuch rahshil 🫶💍👩‍❤️‍👨</li>
-  <li>❤️‍🔥 Love u pillya so much 💖💘💞💓💝</li>
-  <li>🤞 Hoepe so tu kayam mazya sobt rahshil 🧿💑 aata jsa ahes tsach kdhich kmi krnar nahi kslich 💯💟</li>
-  <li>😢 Basss....Khup sangayla ahe pillya pn bekkar rdu yetay.. 😭🥺💔</li>
-</ul>
-
+    <li>🌴 Nich kayam Bhandt Rahato, 😤🤯❤️</li>
+    <li>🎉 Pushpak tuch First time jeva bolla teva GF parynt gelach nahi Direct bayko... 😆😂🤣 bekkar hasayla yet te athvun 😝💕💞</li>
+    <li>🌄 Leena didi ch lagn 💍💐 ani Leena Ahire lach request avaj aiknya sathi 🙏📞😔</li>
+    <li>📞 Dhulyala first time call kela 🤳🏼 bekkar hasli hoti mi prachand 😆😂 shejarcha ek room rikama hota 🚪🛏️ ni tyachya shejari sakshi cha room direct door knock krun vicharychi yevdhi kabr hasteye 🤣🙈....me reason sangital mavshi cha porga hota 😳🙃</li>
+    <li>📸 Snap pasun zaleli survat 😅😬 khot bolayvr geli...Tanvi mdhe pdli bichari... 🫣😶‍🌫️</li>
+    <li>🐣 Pillya tuzya barobr cha pratek day itka bhari ahe 💕💫 aaj parynt cha it just became memorable forever 🌈🕊️📖</li>
+    <li>💋 ky tuz bghn 😍 ky tuze lips red red 😚 mazi cheery red red cheery 🍒🍓😳</li>
+    <li>📝 Pillya he sagal type krteye pn rdu yetay 😭💌 shappat 💔 divas ka yevdhe fast fast jatay 🕰️😢 khupch fast jatay na 🫠💫</li>
+    <li>💖 Pillya nahi mahit pudhe ky honar ahe 🙏✨ pn mazi first ani last choice tuch rahshil 🫶💍👩‍❤️‍👨</li>
+    <li>❤️‍🔥 Love u pillya so much 💖💘💞💓💝</li>
+    <li>🤞 Hope so tu kayam mazya sobt rahshil 🧿💑 aata jsa ahes tsach kdhich kmi krnar nahi kslich 💯💟</li>
+    <li>😢 Basss....Khup sangayla ahe pillya pn bekkar rdu yetay.. 😭🥺💔</li>
   </ul>
   <button class="next-btn" onclick="nextPage()">Next</button>
 </div>
+
 <script>
   function nextPage() {
     window.location.href = "lovedones.html";
