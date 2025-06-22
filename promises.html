@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Promises</title>
   <style>
     * {
@@ -12,127 +12,95 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
-      height: 100vh;
-      overflow: hidden;
       background: linear-gradient(to right, #000000, #434343);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
-      padding: 2rem;
-      position: relative;
     }
-    .hearts, .balloons {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .heart, .balloon {
-      position: absolute;
-      animation: float 14s infinite ease-in-out;
-      opacity: 0.6;
-    }
-    .heart {
-      font-size: 2.2rem;
-    }
-    .balloon {
-      width: 35px;
-      height: 55px;
-      border-radius: 15px;
-    }
-    .balloon1 { background: radial-gradient(circle, #ff8c00, #ffd700); }
-    .balloon2 { background: radial-gradient(circle, #ad1457, #f48fb1); }
-    .balloon3 { background: radial-gradient(circle, #1565c0, #90caf9); }
 
-    @keyframes float {
-      0% {transform: translateY(100vh) scale(0.6); opacity: 0.4;}
-      50% {opacity: 1;}
-      100% {transform: translateY(-10vh) scale(1); opacity: 0.4;}
+    .video-box {
+      margin: 2rem auto;
+      max-width: 720px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .romantic-lines {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ffe4e1;
     }
 
     .content {
-      z-index: 1;
-      background: rgba(255,255,255,0.94);
-      padding: 2.5rem;
-      border-radius: 30px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.35);
-      animation: fadeIn 2s ease-in-out;
-      max-width: 800px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 700px;
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
+
     h1 {
-      font-size: 2.3rem;
-      color: #2c3e50;
-      margin-bottom: 1.2rem;
+      color: #880e4f;
+      margin-bottom: 1rem;
     }
+
     ul {
       list-style: none;
-      padding: 0;
-      font-size: 1.15rem;
-      color: #333;
-      line-height: 2;
+      padding-left: 0;
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: left;
     }
+
     .next-btn {
-      margin-top: 2.5rem;
-      padding: 1rem 2.2rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
       background: #880e4f;
       color: white;
       border: none;
       border-radius: 12px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
     }
+
     .next-btn:hover {
       background: #560027;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-<div class="hearts">
-  <script>
-    const heartColors = ['#8b0000', '#a52a2a', '#ff4500', '#b22222', '#800000', '#c71585', '#db7093', '#9932cc'];
-    for (let i = 0; i < 1000; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.textContent = '❤';
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.top = (Math.random() * 100 + 50) + '%';
-      heart.style.animationDelay = (Math.random() * 12) + 's';
-      heart.style.fontSize = (Math.random() * 0.9 + 1.6) + 'rem';
-      heart.style.opacity = Math.random() * 0.5 + 0.5;
-      heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-      document.querySelector('.hearts').appendChild(heart);
-    }
-  </script>
-</div>
-<div class="balloons">
-  <script>
-    for (let i = 0; i < 30; i++) {
-      const balloon = document.createElement('div');
-      balloon.className = 'balloon';
-      balloon.classList.add('balloon' + ((i % 3) + 1));
-      balloon.style.left = Math.random() * 100 + '%';
-      balloon.style.top = (Math.random() * 100 + 50) + '%';
-      balloon.style.animationDelay = (Math.random() * 10) + 's';
-      document.querySelector('.balloons').appendChild(balloon);
-    }
-  </script>
+<div class="video-box">
+  <video controls autoplay muted loop>
+    <source src="prvdo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
-  <video controls autoplay muted loop width="100%">
-  <source src="prvdo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
+<div class="romantic-lines">
+  ❤️ तुझ्या हास्यासाठी काहीही करायला तयार आहे<br>
+  🥺 तू आहेस म्हणून आजचा दिवस सुंदर आहे<br>
+  🌙 तुझ्या आठवणी रात्री झोप येऊ देत नाहीत<br>
+  🌟 तू माझ्या आयुष्यात आल्यानंतर सगळं बदललं<br>
+  💞 आपली ओळख म्हणजे नशिबाचं देणं<br>
+  🎶 प्रत्येक गाण्यात आजकाल तुझंच नाव ऐकू येतं<br>
+  🕊️ तू जवळ नसलीस तरी मनाजवळ आहेस<br>
+  📸 तुझ्या हसण्याची एक झलक सुद्धा दिवस सुंदर करते<br>
+  💑 तुझ्याशिवाय जगणं म्हणजे फक्त श्वास घेणं<br>
+  💍 प्रत्येक जन्मी पुन्हा तुलाच हवंय... फक्त तुलाच...
+</div>
+
 <div class="content">
   <h1>Promises 💍</h1>
   <ul>
@@ -144,10 +112,12 @@
   </ul>
   <button class="next-btn" onclick="nextPage()">Next</button>
 </div>
+
 <script>
   function nextPage() {
-    window.location.href = "final.html"; // replace with the next page if available
+    window.location.href = "final.html";
   }
 </script>
+
 </body>
 </html>
