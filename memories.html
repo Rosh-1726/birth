@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memories</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Beautiful Memories</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      padding: 1rem;
       text-align: center;
-      overflow: hidden;
+      position: relative;
     }
+
     .container {
-      max-width: 800px;
-      margin: 5% auto;
-      background: rgba(255,255,255,0.9);
-      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1.5rem;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      animation: fadeIn 2s ease-in-out;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 1;
     }
+
     h2 {
-      color: #e91e63;
+      color: #d6006e;
       margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
+
     .memory {
       margin-bottom: 1.5rem;
     }
+
     .memory img {
       width: 100%;
-      max-width: 500px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
     .caption {
-      margin-top: 0.5rem;
       font-style: italic;
-      color: #555;
+      color: #444;
+      margin-top: 0.5rem;
     }
+
     .next-btn {
       margin-top: 2rem;
-      padding: 1rem 2rem;
-      background: #ff69b4;
+      padding: 0.9rem 2rem;
+      background: #e91e63;
       color: white;
       border: none;
       border-radius: 10px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
     }
+
     .next-btn:hover {
-      background: #e0559b;
+      background: #c2185b;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .poem {
+      margin-top: 2rem;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #5c0032;
+      background: #fff8fb;
+      padding: 1rem;
+      border-radius: 15px;
+      font-weight: 500;
     }
+
     .background-hearts {
       position: absolute;
       width: 100%;
@@ -69,83 +89,85 @@
       overflow: hidden;
       z-index: 0;
     }
+
     .heart {
       position: absolute;
-      color: #a00044;
-      font-size: 0.8rem;
+      color: #ff5b93;
+      font-size: 0.9rem;
       animation: float 12s infinite ease-in-out;
-      opacity: 0.5;
+      opacity: 0.4;
     }
+
     @keyframes float {
       0% { transform: translateY(100vh) scale(0.5); }
-      100% { transform: translateY(-10vh) scale(1); }
+      100% { transform: translateY(-10vh) scale(1.1); }
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1rem;
+      }
+
+      .poem {
+        font-size: 0.95rem;
+      }
+
+      .next-btn {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
   <audio autoplay loop>
-    <source src="instrumental.mp3" type="audio/mpeg">">
+    <source src="instrumental.mp3" type="audio/mpeg" />
   </audio>
 
   <div class="background-hearts" id="hearts"></div>
 
   <div class="container">
     <h2>Our Beautiful Memories</h2>
-    <h2>Journy Started From 23-Aug-2023</h2>
-    <h2>First Meet 14 dec 2023</h2>
-    <h2>23-Aug-2023</h2>
+    <h2>Journey Started From 23-Aug-2023</h2>
+    <h2>First Meet: 14-Dec-2023</h2>
+
     <div class="memory">
-      <img src="img1.jpg" alt="Pakshu">
-      <div class="caption">First BirthDay Celebration</div>
+      <img src="img1.jpg" alt="First Touch">
+      <div class="caption">First Birthday Celebration 💝</div>
     </div>
+
     <div class="memory">
       <img src="img2.jpg" alt="Random Meet">
-      <div class="caption">Nagpur-Chandwad, full of joy and laughter 🎉</div>
+      <div class="caption">Nagpur to Chandwad – our bond grew stronger ❤️</div>
     </div>
+
     <div class="memory">
-      <img src="https://via.placeholder.com/500x300?text=Random+Cuddle+Moment" alt="Cuddle Moment">
-      <div class="caption">Just us, being goofy and in love 🤗</div>
+      <img src="img3.jpg" alt="Love Moment">
+      <div class="caption">Capturing love, one memory at a time 💫</div>
     </div>
-    <button class="next-btn" onclick="nextPage()">Next</button>
+
+    <div class="poem">
+      पुष्पक फक्त एका मुलीची काळजी घेतो,<br>
+      या साऱ्या जगात तिचंच हसू त्याचं जग असतं... 😊💞<br><br>
+
+      तिच्या हास्यासाठी काहीही करायला तयार असतो,<br>
+      आई-बाबांप्रमाणे जीव लावतो... 👨‍👩‍👧‍👦❤️<br><br>
+
+      भविष्य काय आणेल माहित नाही, पण खरं प्रेम साक्षात देवाच्या आशिर्वादासारखं असतं... 🌟<br><br>
+
+      एकदा चमत्कार झाला... जेव्हा पुष्पक रोशनीकडे आला कॉलेजमध्ये,<br>
+      अन ती बसमध्ये होती... गणपती बाप्पाजवळ केलेली प्रार्थना ऐकली गेली... 🚌🐘<br><br>
+
+      फोनमध्ये नेटवर्क नव्हतं, डेटा नव्हता... पण मेसेज जात होते – येत होते...<br>
+      It’s just a magic... जेव्हा देवसुद्धा दोन जीवांचं एक होणं पाहतो... ❤️✨
+    </div>
+
+    <button class="next-btn" onclick="window.location.href='shayari.html'">Next</button>
   </div>
-<p>
-<center>
-  <h2>पुष्पक फक्त एका मुलीची काळजी घेतो,
-या साऱ्या जगात फक्त तिचंच हसू त्याचं जग असतं... 😊💞
 
-तीच्या हसवण्यासाठी तो काहीही करायला तयार असतो,
-जसं आपले आई-बाबा जीव लावतात,
-तसाच तो तिच्यावर जीवापाड प्रेम करतो... 👨‍👩‍👧‍👦❤️
-
-नाही माहित पुढे काय होईल,
-लग्न होईल की नाही, कोण सांगू शकतं?
-पण असं म्हणतात ना —
-"जर तुम्ही एखादी गोष्ट मनापासून हवीशी केली,
-तर संपूर्ण सृष्टी तुम्हाला ती देण्यासाठी एकत्र येते..." ✨🌍
-
-एकदा घडलं होतं असंच एक चमत्कार...
-जेव्हा पुष्पक रोशनीकडे आला होता कॉलेजमध्ये,
-आणि ती बसमध्ये होती... 🚌🌸
-
-तेव्हाच गणपती बाप्पाजवळ मागितलेली छोटीशी इच्छा,
-ती पूर्ण व्हावी, म्हणून जणू बाप्पाच प्रयत्न करत होता... 🙏🐘💫
-
-त्या दिवशी रोशनीचं मोबाईलमध्ये नाही network,
-नाही balance... नाहीच काही...
-पण तरीही WhatsApp वरून मेसेज जात होते… येत होते…
-आणि तिला वाटलं – हे काहीतरी वेगळंच आहे... 📱💌
-
-Its Just a Magic...
-कारण देव पण तेच करतो –
-जेव्हा दोन जीवांची मनापासूनची भावना खरी असते... ❤️✨</h2>
-</center>
-</p>
   <script>
-    function nextPage() {
-      window.location.href = "shayari.html";
-    }
+    // Background floating hearts
     const heartsContainer = document.getElementById('hearts');
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 300; i++) {
       const heart = document.createElement('div');
       heart.className = 'heart';
       heart.textContent = '❤';
