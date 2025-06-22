@@ -6,128 +6,81 @@
   <title>Loved Ones</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     body {
-      height: 100vh;
-      overflow: hidden;
       background: linear-gradient(to right, #1d2b64, #f8cdda);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
+      padding: 1rem;
+      color: #333;
     }
-    .hearts, .balloons {
-      position: absolute;
+
+    .container {
       width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .heart, .balloon {
-      position: absolute;
-      animation: float 12s infinite ease-in-out;
-      opacity: 0.6;
-    }
-    .heart {
-      font-size: 2rem;
-    }
-    .balloon {
-      width: 35px;
-      height: 55px;
-      border-radius: 15px;
-    }
-    .balloon1 { background: radial-gradient(circle, #fd6e6a, #ffc3a0); }
-    .balloon2 { background: radial-gradient(circle, #6ec6ff, #b3e5fc); }
-    .balloon3 { background: radial-gradient(circle, #ab47bc, #ce93d8); }
-
-    @keyframes float {
-      0% {transform: translateY(100vh) scale(0.5); opacity: 0.4;}
-      50% {opacity: 1;}
-      100% {transform: translateY(-10vh) scale(1.1); opacity: 0.4;}
-    }
-
-    .content {
-      z-index: 3;
-      background: rgba(255,255,255,0.92);
-      padding: 4rem;
-      border-radius: 40px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease-in-out;
-      max-width: 850px;
-    }
-    h1 {
-      font-size: 2.2rem;
-      color: #2c3e50;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
       margin-bottom: 1rem;
     }
+
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 1rem;
+    }
+
     ul {
       list-style: none;
+      font-size: 1rem;
+      line-height: 1.8;
       padding: 0;
-      font-size: 1.1rem;
-      color: #333;
-      line-height: 2;
     }
+
     .next-btn {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background: #6a1b9a;
+      display: block;
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: #6a1b9a;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
     }
-    .next-btn:hover {
-      background: #4a148c;
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        font-size: 0.95rem;
+      }
+
+      .next-btn {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="hearts">
-  <script>
-    const heartColors = ['#6a0dad', '#8b0000', '#dc143c', '#4b0082', '#9932cc', '#8a2be2', '#ff1493', '#e60073'];
-    for (let i = 0; i < 1000; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.textContent = '❤';
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.top = (Math.random() * 100 + 50) + '%';
-      heart.style.animationDelay = (Math.random() * 12) + 's';
-      heart.style.fontSize = (Math.random() * 0.8 + 1.4) + 'rem';
-      heart.style.opacity = Math.random() * 0.6 + 0.4;
-      heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-      document.querySelector('.hearts').appendChild(heart);
-    }
-  </script>
-</div>
-<div class="balloons">
-  <script>
-    for (let i = 0; i < 30; i++) {
-      const balloon = document.createElement('div');
-      balloon.className = 'balloon';
-      balloon.classList.add('balloon' + ((i % 3) + 1));
-      balloon.style.left = Math.random() * 100 + '%';
-      balloon.style.top = (Math.random() * 100 + 50) + '%';
-      balloon.style.animationDelay = (Math.random() * 10) + 's';
-      document.querySelector('.balloons').appendChild(balloon);
-    }
-  </script>
-</div>
-<div class="content">
+<div class="container">
   <h1>Loved Ones ❤️</h1>
   <ul>
     <li>👫 You and Me – Always Together</li>
@@ -138,41 +91,40 @@
   </ul>
   <button class="next-btn" onclick="nextPage()">Next</button>
 </div>
-  <div class="content">
-  <video autoplay muted loop controls width="500">
-  <source src="vdo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-  </div> 
 
-  <div class="content">
-  <video autoplay muted loop controls width="500">
-  <source src="vdo3.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-  </div> 
+<div class="container">
+  <video id="video1" src="vdo.mp4" controls></video>
+  <video id="video2" src="vdo3.mp4" controls style="display:none;"></video>
+  <video id="video3" src="vdo4.mp4" controls style="display:none;"></video>
+  <video id="video4" src="hat.mp4" controls style="display:none;"></video>
+</div>
 
-  <div class="content">
-  <video autoplay muted loop controls width="500">
-  <source src="vdo4.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-  </div> 
-
-  <div class="content">
-  <video autoplay muted loop controls width="500">
-  <source src="hat.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-  </div> 
 <script>
+  const videos = [
+    document.getElementById('video1'),
+    document.getElementById('video2'),
+    document.getElementById('video3'),
+    document.getElementById('video4')
+  ];
+
+  // Auto play videos one after another
+  for (let i = 0; i < videos.length - 1; i++) {
+    videos[i].addEventListener('ended', function () {
+      videos[i].style.display = 'none';
+      videos[i + 1].style.display = 'block';
+      videos[i + 1].play();
+    });
+  }
+
+  // Start the first video automatically
+  window.onload = () => {
+    videos[0].play();
+  };
+
   function nextPage() {
     window.location.href = "promises.html";
   }
 </script>
+
 </body>
 </html>
