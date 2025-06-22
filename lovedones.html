@@ -92,33 +92,26 @@
   <button class="next-btn" onclick="nextPage()">Next</button>
 </div>
 
-<div class="container">
-  <video id="video1" src="vdo.mp4" controls></video>
-  <video id="video2" src="vdo3.mp4" controls style="display:none;"></video>
-  <video id="video3" src="vdo4.mp4" controls style="display:none;"></video>
-  <video id="video4" src="hat.mp4" controls style="display:none;"></video>
-  <video id="video5" src="vdo6.mp4" controls style="display:none;"></video>
-  <video id="video6" src="vdo7.mp4" controls style="display:none;"></video>
-  <video id="video7" src="vdo8.mp4" controls style="display:none;"></video>
-  <video id="video8" src="vdo9.mp4" controls style="display:none;"></video>
-  <video id="video9" src="vdo10.mp4" controls style="display:none;"></video>
-
+<div class="container" id="video-container">
+  <video id="video1" src="vdo1.mp4" controls></video>
+  <video id="video2" src="vdo2.mp4" controls style="display:none;"></video>
+  <video id="video3" src="vdo3.mp4" controls style="display:none;"></video>
+  <video id="video4" src="vdo4.mp4" controls style="display:none;"></video>
+  <video id="video5" src="vdo5.mp4" controls style="display:none;"></video>
+  <video id="video6" src="vdo6.mp4" controls style="display:none;"></video>
+  <video id="video7" src="vdo7.mp4" controls style="display:none;"></video>
+  <video id="video8" src="vdo8.mp4" controls style="display:none;"></video>
+  <video id="video9" src="vdo9.mp4" controls style="display:none;"></video>
 </div>
 
 <script>
-  const videos = [
-    document.getElementById('video1'),
-    document.getElementById('video2'),
-    document.getElementById('video3'),
-    document.getElementById('video4')
-    document.getElementById('video5')
-  document.getElementById('video6')
-  document.getElementById('video7')
-  document.getElementById('video8')
-  document.getElementById('video9')
-  ];
+  const videoCount = 9;
+  const videos = [];
 
-  // Auto play videos one after another
+  for (let i = 1; i <= videoCount; i++) {
+    videos.push(document.getElementById(`video${i}`));
+  }
+
   for (let i = 0; i < videos.length - 1; i++) {
     videos[i].addEventListener('ended', function () {
       videos[i].style.display = 'none';
@@ -127,7 +120,6 @@
     });
   }
 
-  // Start the first video automatically
   window.onload = () => {
     videos[0].play();
   };
